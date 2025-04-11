@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Eduaction</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Eduaction.On.Web.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/Assets/vendors/base/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="~/Assets/css/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="~/Assets/images/favicon.png" />
+</head>
+<body>
+
+    <div class="container-scroller">
+        <div class="horizontal-menu">
+            <nav class="navbar top-navbar col-lg-12 col-12 p-0">
+                @await Html.PartialAsync("_horizontal-navbar.cshtml")
+            </nav>
+            @await Html.PartialAsync("_bootomnavabr.cshtml")
+        </div>
+        <div class="container-fluid page-body-wrapper">
+            <div class="main-panel " role="main">
+                <div class="content-wrapper">
+                    @RenderBody()
+                </div>
+
+            </div>
+        </div>
+        @await Html.PartialAsync("_footerPartial.cshtml")
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="~/Assets/vendors/base/vendor.bundle.base.js"></script>
+    <script src="~/Assets/js/template.js"></script>
+    <script src="~/Assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="~/Assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="~/Assets/vendors/chartjs-plugin-datalabels/chartjs-plugin-datalabels.js"></script>
+    <script src="~/Assets/vendors/justgage/raphael-2.1.4.min.js"></script>
+    <script src="~/Assets/vendors/justgage/justgage.js"></script>
+    <script src="~/Assets/js/jquery.cookie.js" type="text/javascript"></script>
+    <!-- Custom js for this page-->
+    <script src="~/Assets/js/dashboard.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

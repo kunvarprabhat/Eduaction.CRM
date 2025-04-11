@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Assets\.DS_Store" />
+    <None Include="wwwroot\Assets\css\.DS_Store" />
+    <None Include="wwwroot\Assets\css\maps\.DS_Store" />
+    <None Include="wwwroot\Assets\fonts\.DS_Store" />
+    <None Include="wwwroot\Assets\fonts\sourcesanspro\.DS_Store" />
+    <None Include="wwwroot\Assets\images\.DS_Store" />
+    <None Include="wwwroot\Assets\images\auth\.DS_Store" />
+    <None Include="wwwroot\Assets\images\dashboard\.DS_Store" />
+    <None Include="wwwroot\Assets\images\faces\.DS_Store" />
+    <None Include="wwwroot\Assets\js\.DS_Store" />
+    <None Include="wwwroot\Assets\pages\.DS_Store" />
+    <None Include="wwwroot\Assets\pages\charts\.DS_Store" />
+    <None Include="wwwroot\Assets\pages\forms\.DS_Store" />
+    <None Include="wwwroot\Assets\pages\icons\.DS_Store" />
+    <None Include="wwwroot\Assets\pages\samples\.DS_Store" />
+    <None Include="wwwroot\Assets\pages\tables\.DS_Store" />
+    <None Include="wwwroot\Assets\pages\ui-features\.DS_Store" />
+    <None Include="wwwroot\Assets\scss\.DS_Store" />
+    <None Include="wwwroot\Assets\scss\components\.DS_Store" />
+    <None Include="wwwroot\Assets\scss\components\plugin-overrides\.DS_Store" />
+    <None Include="wwwroot\Assets\scss\mixins\.DS_Store" />
+    <None Include="wwwroot\Assets\vendors\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Eduaction.BusinessLogic\Eduaction.BusinessLogic.csproj" />
+  </ItemGroup>
+
+</Project>
