@@ -11,7 +11,7 @@ namespace Eduaction.BusinessLogic.Abstract
     {
         Task<IEnumerable<EmployeeMaster>> GetAllEmployee();
         Task<EmployeeMaster> GetEmployeeById(int modelId);
-        Task<int> CreateEmployee(EmployeeMaster model);
+        Task<EmployeeMaster> CreateEmployee(EmployeeMaster model);
         Task<bool> UpdateEmployee(int modelId, EmployeeMaster model);
         Task<bool> DeleteEmployee(int modelId);
     }

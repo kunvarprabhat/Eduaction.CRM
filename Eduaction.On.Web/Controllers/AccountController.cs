@@ -16,6 +16,10 @@ namespace Eduaction.On.Web.Controllers
             _employeeRepo = employeeRepo;
             _loginRepo = loginRepo;
         }
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         // GET: /Account/Login
         public IActionResult Login()
@@ -38,42 +42,7 @@ namespace Eduaction.On.Web.Controllers
             return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(EmployeeMaster model)
-        {
-            if (!ModelState.IsValid) return View(model);
-
-            var employee = new EmployeeMaster
-            {
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                EmailId = model.EmailId,
-                MobileNo = model.MobileNo,
-                EmpCode = model.EmpCode,
-                AddedDate = DateTime.Now,
-                AddedBy = 1, // from session ideally
-                IsActive = true
-            };
-
-            await _employeeRepo.CreateEmployee(employee);
-
-            var login = new LoginInfo
-            {
-                EmployeeId = employee.Id,
-                LoginId = model.LoginInfos.FirstOrDefault().LoginId,
-                Password = HashPassword(model.LoginInfos.FirstOrDefault().Password),
-                IsActive = true,
-                IsFirstLogin = true,
-                AddedDate = DateTime.Now,
-                AddedBy = 1
-            };
-
-            _loginRepo.Add(login);
-            _loginRepo.Save();
-
-            return RedirectToAction("Login");
-        }
+        
 
         // GET: /Account/Register
         public IActionResult Register()

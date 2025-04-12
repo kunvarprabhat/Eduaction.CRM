@@ -15,7 +15,7 @@ namespace Eduaction.DataModel.Mappings
             entity.Property(e => e.EmailId)
                         .HasMaxLength(150)
                         .HasColumnName("EmailID");
-            entity.Property(e => e.EmpCode).HasMaxLength(10);
+            entity.Property(e => e.EmpCode).HasMaxLength(25);
             entity.Property(e => e.FirstName).HasMaxLength(150);
             entity.Property(e => e.Ipaddress)
                         .HasMaxLength(250)

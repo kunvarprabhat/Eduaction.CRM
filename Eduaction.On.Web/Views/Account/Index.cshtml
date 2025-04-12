@@ -1,0 +1,7 @@
+﻿@{
+    ViewData["Title"] = "Dashboard | Digital Signage";
+}
+
+
+
+<partial name="@(User.IsInRole("SuperAdmin")==true?"_AdminDashboard":"_CustomerDashboard")" />

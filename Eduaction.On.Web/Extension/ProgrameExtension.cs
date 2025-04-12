@@ -1,8 +1,8 @@
-﻿
-using Eduaction.BusinessLogic.Abstract;
+﻿using Eduaction.BusinessLogic.Abstract;
 using Eduaction.BusinessLogic.Concrete;
 using Eduaction.DataModel;
-
+using Microsoft.EntityFrameworkCore;
+#pragma warning disable 
 namespace Eduaction.On.Web.Extension
 {
     public static class ProgrameExtension
@@ -10,12 +10,19 @@ namespace Eduaction.On.Web.Extension
         public static void DependencyResolver(this IServiceCollection services, ConfigurationManager configuration)
         {
             AppSettingProvider(configuration);
+
+            // ✅ Register the EducationDbContext
+            services.AddDbContext<EducationDbContext>(options =>
+                options.UseSqlServer(configuration.GetConnectionString("DBConnection")));
+
+            // ⬇️ Your existing repository registrations
             services.AddScoped<ICallTrackerRepository, CallTrackerRepository>();
             services.AddScoped<IRoleRepository, RoleRepository>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<ILoginInfoRepository, LoginInfoRepository>();
-            //services.AddSession();
+            services.AddSession();
         }
+
         public static void AppSettingProvider(ConfigurationManager configuration)
         {
             var appSetting = configuration.GetSection("AppSettings");

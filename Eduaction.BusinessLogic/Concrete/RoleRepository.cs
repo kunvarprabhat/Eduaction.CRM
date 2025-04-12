@@ -50,8 +50,6 @@ namespace Eduaction.BusinessLogic.Concrete
             using (EducationDbContext context = new EducationDbContext())
             {
                 return await context.Roles.Where(x => x.IsActive == true).ToListAsync();
-                        
-                        
             }
         }
 

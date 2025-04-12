@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(option =>
     {
-        option.LoginPath = "/Home/Index";
+        option.LoginPath = "/Home/Login";
         option.ExpireTimeSpan = TimeSpan.FromMinutes(50);
         option.AccessDeniedPath = "/Home/Unauthorized";
     });
@@ -42,8 +42,10 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseRouting();
+app.UseStaticFiles(); // if you're using static files
 
+app.UseRouting();
+app.UseAuthentication(); // <-- Add this line here
 app.UseAuthorization();
 
 app.MapStaticAssets();
