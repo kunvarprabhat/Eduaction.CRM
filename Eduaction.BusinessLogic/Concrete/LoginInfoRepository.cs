@@ -19,7 +19,7 @@ namespace Eduaction.BusinessLogic.Concrete
             _context = context;
         }
 
-        public LoginInfo? GetByLoginId(string loginId)
+        public LoginInfo? GetByLoginIdAsync(string loginId)
         {
             return _context.LoginInfos.Include(x => x.Employee)
                                       .FirstOrDefault(l => l.LoginId == loginId && l.IsActive);

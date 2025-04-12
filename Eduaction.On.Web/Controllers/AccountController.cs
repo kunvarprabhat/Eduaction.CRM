@@ -27,7 +27,7 @@ namespace Eduaction.On.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(string loginId, string password)
         {
-            var user = await _loginRepo.GetByLoginIdAsync(loginId);
+            var user =  _loginRepo.GetByLoginIdAsync(loginId);
             if (user != null && VerifyPasswordHash(password, user.Password))
             {
                 HttpContext.Session.SetString("UserId", user.EmployeeId.ToString());

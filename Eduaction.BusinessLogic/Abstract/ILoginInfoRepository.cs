@@ -9,7 +9,7 @@ namespace Eduaction.BusinessLogic.Abstract
 {
     public interface ILoginInfoRepository
     {
-        LoginInfo? GetByLoginId(string loginId);
+        LoginInfo? GetByLoginIdAsync(string loginId);
         void Add(LoginInfo login);
         void Save();
     }
