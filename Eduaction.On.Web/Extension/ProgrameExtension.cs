@@ -12,6 +12,9 @@ namespace Eduaction.On.Web.Extension
             AppSettingProvider(configuration);
             services.AddScoped<ICallTrackerRepository, CallTrackerRepository>();
             services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<ILoginInfoRepository, LoginInfoRepository>();
+            //services.AddSession();
         }
         public static void AppSettingProvider(ConfigurationManager configuration)
         {
