@@ -21,20 +21,10 @@ namespace Eduaction.BusinessLogic.Concrete
             _context = context;
         }
 
-        public LoginInfo? GetByLoginIdAsync(string loginId)
+        public async Task<IEnumerable<LoginInfo>> GetAllLoginInfo()
         {
-            return _context.LoginInfos.Include(x => x.Employee)
-                                      .FirstOrDefault(l => l.LoginId == loginId && l.IsActive);
-        }
+            return await _context.LoginInfos.Include(x=>x.Employee).ThenInclude(x=>x.Roles).Where(x => x.IsActive == true).ToListAsync();
 
-        public void Add(LoginInfo login)
-        {
-            _context.LoginInfos.Add(login);
-        }
-
-        public void Save()
-        {
-            _context.SaveChanges();
         }
 
         public LoggedUser GetLoginInfoByUserIdPassword(string LoginId, string password)
@@ -45,9 +35,9 @@ namespace Eduaction.BusinessLogic.Concrete
                  {
                      CustomerId = u.EmployeeId,
                      Id = u.Id,
-                     FullName = u.Employee.FirstName,
+                     FullName = u.Employee.FullName,
                      EmailId = u.Employee.EmailId,
-                     CustomerName = u.Employee.EmpCode,
+                     CustomerCode = u.Employee.EmpCode,
                      MobileNo = u.Employee.MobileNo,
                      Role = u.Employee.Roles.FirstOrDefault().RoleName,
                      IsFirstLogin = u.IsFirstLogin
@@ -59,23 +49,6 @@ namespace Eduaction.BusinessLogic.Concrete
             return user;
 
         }
-        //public static string HashPassword(string password)
-        //{
-        //    var hasher = new PasswordHasher<string>();
-        //    return hasher.HashPassword(null, password);
-        //}
-
-        //public static bool VerifyPassword(string password, string hashedPassword)
-        //{
-        //    var hasher = new PasswordHasher<string>();
-        //    var result = hasher.VerifyHashedPassword(null, hashedPassword, password);
-        //    return result == PasswordVerificationResult.Success;
-        //}
-        //public bool CheckPassword(LoginInfo login, string password)
-        //{
-        //    string hashedPassword = Securities.ComputeHash(password, string.Empty, null);
-        //    return hashedPassword.Equals(login.Password);
-        //}
     }
 
 }

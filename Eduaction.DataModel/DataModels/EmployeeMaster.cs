@@ -12,6 +12,7 @@ public partial class EmployeeMaster
     public string? MiddleName { get; set; }
 
     public string LastName { get; set; } = null!;
+    public string FullName => $"{FirstName} {MiddleName ?? ""} {LastName}".Replace("  ", " ").Trim();
 
     public string EmpCode { get; set; } = null!;
 

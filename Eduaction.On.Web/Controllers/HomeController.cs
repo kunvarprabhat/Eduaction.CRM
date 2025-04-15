@@ -45,7 +45,7 @@ namespace Eduaction.On.Web.Controllers
                          new Claim("EmailId",loginInfo.EmailId),
                          new Claim("MobileNo",loginInfo.MobileNo),
                          new Claim("CustomerId",loginInfo.CustomerId.ToString()),
-                         new Claim("CustomerName",loginInfo.CustomerName),
+                         new Claim("CustomerCode",loginInfo.CustomerCode),
                         new Claim("IsFirstLogin",loginInfo.IsFirstLogin.ToString()),
                         new Claim(ClaimTypes.Role,loginInfo.Role)
                     };

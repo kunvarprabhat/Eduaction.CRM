@@ -14,7 +14,7 @@ namespace Eduaction.BusinessLogic.EntityModel
         public string MobileNo { get; set; }
         public string Role { get; set; }
         public int CustomerId { get; set; }
-        public string CustomerName { get; set; }
+        public string CustomerCode { get; set; }
         public bool IsFirstLogin { get; set; }
     }
 }
